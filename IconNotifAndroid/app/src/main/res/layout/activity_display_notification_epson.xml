@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutBase"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context="com.hci.nip.android.ui.DisplayNotificationActivity">
+
+    <!-- NOTE: Epson BT-300 display 1280RGBx720, 24bit color, mdpi -->
+
+    <!--    ref: https://designguidelines.withgoogle.com/android-tv/style/typography.html#typography-style-->
+    <!--    ref: https://material.io/develop/android/theming/typography-->
+    <!--    ref: https://learnui.design/blog/android-material-design-font-size-guidelines.html-->
+
+    <!--    limit characters: https://stackoverflow.com/questions/9149846/can-i-limit-textviews-number-of-characters-->
+
+    <!--    App icon size: https://www.creativefreedom.co.uk/icon-designers-blog/android-4-1-icon-size-guide-made-simple/,-->
+    <!--    https://documentation.onesignal.com/docs/customize-notification-icons-->
+
+    <RelativeLayout
+        android:id="@+id/displayMainLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/displayProfileHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/mainMarginStart"
+            android:layout_marginTop="@dimen/mainMarginTop"
+            android:layout_marginEnd="@dimen/mainMarginEnd"
+            android:text="@string/displayProfileHeading"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/headingSize"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/displayImage"
+            android:layout_width="@dimen/imageSize"
+            android:layout_height="@dimen/imageSize"
+
+            android:layout_below="@+id/displayProfileHeading"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toStartOf="@+id/displayProfileSubheading"
+            android:src="@drawable/ic_android_notif" />
+
+        <ImageView
+            android:id="@+id/displayImage2"
+            android:layout_width="@dimen/imageSize"
+            android:layout_height="@dimen/imageSize"
+
+            android:layout_below="@+id/displayProfileHeading"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toStartOf="@+id/displayProfileSubheading2"
+            android:src="@drawable/ic_android_notif" />
+
+        <TextView
+            android:id="@+id/displayProfileSubheading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/displayProfileHeading"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/mainMarginStart"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/mainMarginEnd"
+            android:letterSpacing="0.0"
+            android:text="@string/displayProfileSubHeading"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/subHeadingSize" />
+
+        <TextView
+            android:id="@+id/displayProfileSubheading2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/displayProfileHeading"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/mainMarginStart"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="@dimen/mainMarginEnd"
+            android:letterSpacing="0.0"
+            android:text="@string/displayProfileSubHeading"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/subHeadingSize" />
+
+        <TextView
+            android:id="@+id/displayProfileContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/displayProfileSubheading"
+            android:layout_marginStart="@dimen/mainMarginStart"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/mainMarginEnd"
+            android:text="@string/displayProfileContent"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/contentSize" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutCue"
+        android:layout_width="@dimen/cueLayoutWidth"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/layoutNotification"
+        android:layout_width="@dimen/notificationLayoutWidth"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/notificationMarginTop"
+        android:background="@drawable/border"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/displayAppIcon"
+            android:layout_width="@dimen/appIconSize"
+            android:layout_height="@dimen/appIconSize"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/notificationMarginStart"
+            android:layout_marginTop="2sp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_android_notif" />
+
+        <TextView
+            android:id="@+id/displayAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/appNameMarginStart"
+
+            android:layout_marginTop="0sp"
+            android:layout_toEndOf="@+id/displayAppIcon"
+            android:background="@color/hud_transparent"
+            android:minEms="@integer/minimumEms"
+            android:text="@string/displayProfileHeading"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/appNameSize"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/displayTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/displayAppName"
+            android:layout_marginStart="@dimen/notificationMarginStart"
+
+            android:layout_marginTop="2sp"
+            android:background="@color/hud_transparent"
+            android:minEms="@integer/minimumEms"
+            android:text="@string/displayProfileHeading"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/titleSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/displayMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/displayTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/notificationMarginStart"
+            android:layout_marginTop="2dp"
+            android:background="@color/hud_transparent"
+            android:minEms="@integer/minimumEms"
+            android:text="@string/displayProfileContent"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/messageSize" />
+
+        <ImageView
+            android:id="@+id/displayLargeIcon"
+            android:layout_width="@dimen/largeIconSize"
+            android:layout_height="@dimen/largeIconSize"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40sp"
+            android:layout_marginEnd="@dimen/notificationMarginEnd"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_android_notif" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layoutMcq"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/mcqQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/mcqMarginStart"
+            android:layout_marginTop="@dimen/mcqMarginStart"
+            android:layout_marginEnd="@dimen/mcqMarginEnd"
+            android:focusable="true"
+            android:text="@string/displayProfileHeading"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/mcqQuestionSize" />
+
+        <RadioGroup
+            android:id="@+id/mcqRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mcqQuestion"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/mcqMarginStart"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/mcqChoice1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/displayMcqRadio"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/mcqChoiceSize" />
+
+            <RadioButton
+                android:id="@+id/mcqChoice2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/displayMcqRadio"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/mcqChoiceSize" />
+
+            <RadioButton
+                android:id="@+id/mcqChoice3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/displayMcqRadio"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/mcqChoiceSize" />
+
+            <RadioButton
+                android:id="@+id/mcqChoice4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/displayMcqRadio"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/mcqChoiceSize" />
+
+        </RadioGroup>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

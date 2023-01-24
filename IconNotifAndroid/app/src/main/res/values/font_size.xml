@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cueLayoutWidth">480sp</dimen>
+    <dimen name="notificationLayoutWidth">480sp</dimen>
+
+    <dimen name="appNameSize1">14sp</dimen>
+    <dimen name="appIconSize1">16sp</dimen>
+    <dimen name="titleSize1">24sp</dimen>
+    <dimen name="messageSize1">20sp</dimen>
+    <dimen name="largeIconSize1">48sp</dimen>
+
+    <dimen name="notificationMarginTop">0sp</dimen>
+    <dimen name="notificationMarginStart">8sp</dimen>
+    <dimen name="notificationMarginEnd">8sp</dimen>
+    <dimen name="appNameSize">24sp</dimen>
+    <dimen name="appIconSize">26sp</dimen>
+    <dimen name="appNameMarginStart">8sp</dimen>
+    <dimen name="titleSize">30sp</dimen>
+    <dimen name="messageSize">30sp</dimen>
+    <dimen name="largeIconSize">60sp</dimen>
+    <integer name="minimumEms">20</integer>
+
+    <dimen name="mainMarginTop">0sp</dimen>
+    <dimen name="mainMarginStart">30sp</dimen>
+    <dimen name="mainMarginEnd">30sp</dimen>
+    <dimen name="headingSize">36sp</dimen>
+    <dimen name="subHeadingSize">50sp</dimen>
+    <dimen name="imageSize">70sp</dimen>
+    <dimen name="contentSize">24sp</dimen>
+
+    <dimen name="mcqMarginStart">175sp</dimen>
+    <dimen name="mcqMarginEnd">30sp</dimen>
+    <dimen name="mcqQuestionSize">34sp</dimen>
+    <dimen name="mcqChoiceSize">30sp</dimen>
+</resources>

@@ -1,6 +1,37 @@
 # Add specific files/folders related to your project
 
 
+IconNotifPython/_sequence*
+IconNotifPython/data*
+IconNotifPython/video*
+IconNotifPython/data-*
+IconNotifPython/**/*_lastrun.py
+IconNotifPython/__pycache__
+IconNotifPython/stimuli/*
+
+
+IconNotifAndroid/*.iml
+IconNotifAndroid/.gradle
+IconNotifAndroid/local.properties
+IconNotifAndroid/.idea
+IconNotifAndroid.DS_Store
+IconNotifAndroid/build
+IconNotifAndroid/captures
+IconNotifAndroid/.externalNativeBuild
+IconNotifAndroid/test-results
+IconNotifAndroid/.project
+IconNotifAndroid/.classpath
+IconNotifAndroid/.settings
+IconNotifAndroid/proguard/
+IconNotifAndroid/*.log
+IconNotifAndroid/captures/
+IconNotifAndroid//lint
+
+IconNotifAndroid/app/src/main/res/raw/credential.json
+
+
+
+.idea/*
 
 
 # System Files

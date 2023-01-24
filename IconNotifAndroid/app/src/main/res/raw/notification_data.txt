@@ -1,0 +1,20 @@
+CNA|null|463 new COVID-19 cases in Singapore, POSB branch in Kaki Bukit added to list of places visited by infectious cases|news|blue|null
+Janaka|null|Hi Nuwan, thanks for helping with annotations!|whatsapp|green|null
+Skype|null|A hands-free call is in progress. Audio will still be played through the speaker when the headphones are connected|skype|blue|null
+App updates are ready|null|Connect to Wi-Fi to continue|google_play|gray|null
+30\u2103 in Singapore|null|Feels like 36\u00B0 . Mostly cloudy|google|blue|null
+Contact Storage|null|Accounts changed|acc|blue|null
+2 new messages|null||gmail|red|null
+Shan|null|Thank you|facebook|blue|null
+Lab Rub|null|19:00-20:00|alarm|blue|null
+WhatsApp Web|null|WhatApp Web is currently active|whatsapp|green|null
+NUS|null|Thank you!|facebook|cyan|null
+Amazon|null|The galaxy is coming home to you! Start Wars: The Force Awakens Blu-Ray has shipped and will arrive Mon.|amazon|yellow|null
+Unknown|null|Welcome everyone! The kickoff reception will begin at 2 pm in UTown.|chat|blue|null
+Instagram|null|Looking for a little sightseeing? Check out the list of Top 10 attractions in Singapore! Post a photo of your favorite place!|instagram|magenta|null
+Backup|null|Please backup files to keep the system secure!|backup|cyan|null
+Provost's Circular Message|null|Resumption of Campus Operations for the Academic Cluster|gmail|red|null
+App updates are ready|null|Connect to Wi-Fi to continue|google_play|gray|null
+CNA|null|463 new COVID-19 cases in Singapore, POSB branch in Kaki Bukit added to list of places visited by infectious cases|news|blue|null
+Add to cart|null|HACHI.TECH SHOW. Up to 70% off!|cart|red|null
+Amazon|null||skype|blue|null
