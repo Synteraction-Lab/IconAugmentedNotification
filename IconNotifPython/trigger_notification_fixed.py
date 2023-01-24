@@ -1,15 +1,13 @@
 # coding=utf-8
 
-import device_config
 import utilities
 
-DEVICE_IP = device_config.get_device_ip()
-
+DEVICE_IP = '192.168.43.67'
 
 DISPLAY_URL = 'http://' + DEVICE_IP + ':8080/displays/10/'
 NOTIFICATION_URL = 'http://' + DEVICE_IP + ':8080/notifiers/12/'
 
-NOTIFICATION_DISPLAY_SECONDS = 10
+NOTIFICATION_DISPLAY_SECONDS = 8
 
 MAX_RETRY_ATTEMPT = 4
 
@@ -41,7 +39,7 @@ def clear_display_data():
 
 _res = ''
 while _res != 'n':
-    _res = input("Continue? (0/3/t/i/n)")
+    _res = input("Continue? (0/t/i/n)")
 
     if _res == 't':
         send_sample_text_display_data()
@@ -50,9 +48,5 @@ while _res != 'n':
     if _res == 'i':
         send_sample_image_display_data()
         utilities.sleep_seconds(NOTIFICATION_DISPLAY_SECONDS)
-
-    if _res == '3':
-        send_sample_text_display_data()
-        utilities.sleep_seconds(3)
 
     clear_display_data()

@@ -7,7 +7,7 @@ IconNotifPython/video*
 IconNotifPython/data-*
 IconNotifPython/**/*_lastrun.py
 IconNotifPython/__pycache__
-IconNotifPython/stimuli/*
+
 
 
 IconNotifAndroid/*.iml

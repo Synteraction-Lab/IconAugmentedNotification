@@ -29,7 +29,6 @@ import sys  # to get file system encoding
 from psychopy.hardware import keyboard
 
 import  trigger_notification_illustrations
-import stimuli_generation
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -84,7 +83,6 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "start"
 startClock = core.Clock()
-stimuli_generation.generate_new_stimuli_csv('stimuli/stimuli_data2.csv')
 txt_start = visual.TextStim(win=win, name='txt_start',
     text='Starting ...',
     font='Arial',
@@ -98,6 +96,8 @@ taskClock = core.Clock()
 timing_info = ''
 image_mapping = {'1': 'img/76x76.png',  '2':'img/100x100.png',  '3':'img/100x76.png', '4':'img/76x100.png'}
 
+trial_data_file = 'stimuli/stimuli_data2-{}.csv'.format((int(expInfo['session']) + 3)% 3)
+print('Trial data file: ', trial_data_file)
 mouse = event.Mouse(win=win)
 x, y = [None, None]
 mouse.mouseClock = core.Clock()
@@ -196,9 +196,9 @@ thisExp.addData('txt_start.started', txt_start.tStartRefresh)
 thisExp.addData('txt_start.stopped', txt_start.tStopRefresh)
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=1, method='sequential', 
+trials = data.TrialHandler(nReps=6, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('stimuli/stimuli_data2.csv'),
+    trialList=data.importConditions(trial_data_file),
     seed=None, name='trials')
 thisExp.addLoop(trials)  # add the loop to the experiment
 thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -334,7 +334,7 @@ for thisTrial in trials:
     trials.addData('im.stopped', im.tStopRefresh)
     thisExp.nextEntry()
     
-# completed 1 repeats of 'trials'
+# completed 6 repeats of 'trials'
 
 
 # ------Prepare to start Routine "end"-------

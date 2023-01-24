@@ -5,21 +5,18 @@
 import numpy as np
 import optparse
 import pandas as pd
-import stimuli_generation
+import re
 import utilities
 
-TESTING_SESSION_IDS = [1, 2, 3, 4]
+TESTING_SESSION_IDS = [1, 2, 3]
 
 NOTIFICATION_DURATION_MS = 10 * 1000
 STIMULI_DURATION_MS = 625
 HIT_TOLERANCE_DURATION_MS = 2000
 
+CLICK_EXPECTED_STIMULI_IDS = [3, 4]
 HIT_TOLERANCE_INDICES = HIT_TOLERANCE_DURATION_MS // STIMULI_DURATION_MS  # i.e.  3 * 625 ms ~ 1900 ms, 625 ms is the stimuli duration
 NOTIFICATION_DURATION_INDICES = NOTIFICATION_DURATION_MS // STIMULI_DURATION_MS  # i.e. 17 * 625 ~ 10 s
-
-CLICK_EXPECTED_IMAGE_IDS = stimuli_generation.get_stimuli_image_ids()
-NOISE_STIMULI_TYPES = stimuli_generation.get_noise_stimuli()
-NOISE_STIMULI_DURATION_INDICES = stimuli_generation.get_noise_stimuli_size()
 
 # input: data directory
 DATA_DIRECTORY_FORMAT = 'data/{}'  # {participant}
@@ -30,7 +27,6 @@ FILE_NAME_STIMULI_RESPONSE_FORMAT = '{}_{}_task_vigilance'
 COLUMN_STIMULI_STIMULI_TIME = 'im.started'
 COLUMN_STIMULI_CLICK_TIMES = 'mouse.time'
 COLUMN_STIMULI_IMAGE_ID = 'image_id'
-COLUMN_STIMULI_TYPE = 'stimuli_type'
 COLUMN_STIMULI_TRIAL_ID = 'trials.thisRepN'
 COLUMN_STIMULI_ID = 'stimuli_id'
 
@@ -71,7 +67,6 @@ def process_participant_session(participant, session):
 
     ori_round = data_frame_image_stimuli_response[COLUMN_STIMULI_TRIAL_ID]
     ori_image_stimuli = data_frame_image_stimuli_response[COLUMN_STIMULI_IMAGE_ID]
-    ori_stimuli_type = data_frame_image_stimuli_response[COLUMN_STIMULI_TYPE]
     # ori_click_times are w.r.t task
     ori_image_stimuli_time = np.array(
         data_frame_image_stimuli_response[COLUMN_STIMULI_STIMULI_TIME])
@@ -146,15 +141,12 @@ def process_participant_session(participant, session):
     hit = []
     miss = []
     false_alarm = []
-    correct_rejection = []
     reaction_time = []
-
-    prev_stimuli_type = None
 
     total_stimuli_count = len(image_stimuli_time)
     for index in range(total_stimuli_count):
         # hit or miss
-        if ori_image_stimuli[index] in CLICK_EXPECTED_IMAGE_IDS:
+        if ori_image_stimuli[index] in CLICK_EXPECTED_STIMULI_IDS:
             hit_click_indices = [click_index for click_index in
                                  range(index,
                                        min(index + HIT_TOLERANCE_INDICES, total_stimuli_count))
@@ -179,7 +171,7 @@ def process_participant_session(participant, session):
         if mapped_click_time[index] is not None:
             hit_stimuli_indices = [stimuli_index for stimuli_index in
                                    range(index, max(0, index - HIT_TOLERANCE_INDICES), -1) if
-                                   ori_image_stimuli[stimuli_index] in CLICK_EXPECTED_IMAGE_IDS]
+                                   ori_image_stimuli[stimuli_index] in CLICK_EXPECTED_STIMULI_IDS]
             if len(hit_stimuli_indices) > 0:
                 false_alarm.append(None)
             else:
@@ -187,26 +179,10 @@ def process_participant_session(participant, session):
         else:
             false_alarm.append(None)
 
-        # correct rejection
-        current_stimuli_type = ori_stimuli_type[index]
-        if current_stimuli_type != prev_stimuli_type and current_stimuli_type in NOISE_STIMULI_TYPES:
-            clicks_during_noise = [click_index for click_index in range(index, min(
-                index + NOISE_STIMULI_DURATION_INDICES, total_stimuli_count)) if
-                                   mapped_click_time[click_index] is not None]
-            if len(clicks_during_noise) == 0:
-                correct_rejection.append(1)
-            else:
-                correct_rejection.append(0)
-        else:
-            correct_rejection.append(None)
-
-        prev_stimuli_type = current_stimuli_type
-
     # calculate total hit, miss, false alarm, (average) reaction time during notification
     hit_sum_notification = [None] * total_stimuli_count
     miss_sum_notification = [None] * total_stimuli_count
     false_alarm_sum_notification = [None] * total_stimuli_count
-    correct_rejection_sum_notification = [None] * total_stimuli_count
     reaction_time_avg_notification = [None] * total_stimuli_count
 
     notification_indices = [index for index in range(total_stimuli_count) if
@@ -220,8 +196,6 @@ def process_participant_session(participant, session):
             miss[notification_start_index: notification_end_index]))
         false_alarm_sum_notification[notification_start_index] = np.sum(get_array_without_none(
             false_alarm[notification_start_index: notification_end_index]))
-        reaction_time_avg_notification[notification_start_index] = np.sum(get_array_without_none(
-            correct_rejection[notification_start_index: notification_end_index]))
         reaction_time_avg_notification[notification_start_index] = np.mean(get_array_without_none(
             reaction_time[notification_start_index: notification_end_index]))
 
@@ -231,21 +205,13 @@ def process_participant_session(participant, session):
         #       reaction_time_avg_notification[notification_start_index],
         #       reaction_time_avg_notification[notification_start_index: notification_end_index])
 
-    csv_data = {'round': ori_round[0:-1],
-                'type': ori_stimuli_type[0:-1],
-                'image': ori_image_stimuli[0:-1],
-                'start_time': image_stimuli_time,
-                'click_time': mapped_click_time,
-                'notification_time': mapped_notification_time,
-                'hit': hit,
-                'miss': miss,
-                'false_alarm': false_alarm,
-                'correct_rejection': correct_rejection,
-                'reaction_time': reaction_time,
+    csv_data = {'round': ori_round[0:-1], 'image': ori_image_stimuli[0:-1],
+                'start_time': image_stimuli_time, 'click_time': mapped_click_time,
+                'notification_time': mapped_notification_time, 'hit': hit, 'miss': miss,
+                'false_alarm': false_alarm, 'reaction_time': reaction_time,
                 'hit-sum-notification': hit_sum_notification,
                 'miss-sum-notification': miss_sum_notification,
                 'false_alarm-sum-notification': false_alarm_sum_notification,
-                'correct_rejection-sum-notification': correct_rejection_sum_notification,
                 'reaction_time-avg-notification': reaction_time_avg_notification,
                 'ori.stimuli_time': ori_image_stimuli_time[0:-1],
                 'ori.click_time': ori_click_times[0:-1]}
@@ -258,12 +224,9 @@ def process_participant_session(participant, session):
 
 
 def print_stats(click_count, csv_data):
-    print(f'\t[Clicks: {click_count}] '
-          f'Hit: {np.sum(get_array_without_none(csv_data["hit"]))}, '
-          f'Miss: {np.sum(get_array_without_none(csv_data["miss"]))}, '
-          f'False Alarm: {np.sum(get_array_without_none(csv_data["false_alarm"]))}, '
-          f'Correct Rejection: {np.sum(get_array_without_none(csv_data["correct_rejection"]))}'
-          f'\n')
+    print(f'\tClicks: {click_count}, Hit: {np.sum(get_array_without_none(csv_data["hit"]))}'
+          f', Miss: {np.sum(get_array_without_none(csv_data["miss"]))}'
+          f', False Alarm: {np.sum(get_array_without_none(csv_data["false_alarm"]))}\n')
     pass
 
 

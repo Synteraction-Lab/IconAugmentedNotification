@@ -2,8 +2,6 @@
 
 import notification_data
 import participant_config
-import device_config
-
 import sys
 import threading
 import time
@@ -11,21 +9,23 @@ import traceback
 import utilities
 from random import randint
 
-START_NOTIFICATION_GAP_SECONDS = 8
+START_NOTIFICATION_GAP_SECONDS = 10
 
-MINIMUM_NOTIFICATION_GAP_SECONDS = 17
-MAXIMUM_NOTIFICATION_GAP_SECONDS = 26
+MINIMUM_NOTIFICATION_GAP_SECONDS = 20
+MAXIMUM_NOTIFICATION_GAP_SECONDS = 30
 NOTIFICATION_DISPLAY_SECONDS = 10
 
-TRAINING_GAP_SHIFT_SECONDS = -5  # should be less than MINIMUM_NOTIFICATION_GAP_SECONDS
+TRAINING_GAP_SHIFT_SECONDS = -10  # should be less than MINIMUM_NOTIFICATION_GAP_SECONDS
 
-
-DEVICE_IP = device_config.get_device_ip()
-
+# DEVICE_IP = '192.168.43.162'
+DEVICE_IP = '192.168.43.67'
+# DEVICE_IP = '192.168.18.17'
 
 NOTIFICATION_URL = 'http://' + DEVICE_IP + ':8080/notifiers/12/'
 DISPLAY_URL = 'http://' + DEVICE_IP + ':8080/displays/10/'
 
+NOTIFICATION_TYPE_TEXT = 'text'
+NOTIFICATION_TYPE_IMAGE = 'image'
 NOTIFICATION_TYPE_NONE = 'none'
 
 NOTIFICATIONS_PER_TRAINING_SESSION = 3
@@ -77,7 +77,7 @@ def trigger_notification_randomly(participant, session, global_clock):
         f'participant: {participant}, session: {session}, start_time: {global_clock.getTime()}, type:{notification_type}')
 
     # skip no-notification condition
-    if notification_data.is_no_notification(notification_type):
+    if notification_type == NOTIFICATION_TYPE_NONE:
         print('Skipping no-notification condition')
         return
 
@@ -122,13 +122,6 @@ def trigger_notification_randomly(participant, session, global_clock):
                 notification = notification_data.get_next_notification_testing_data(
                     notification_type)
 
-            # update notification image, if it has an image
-            icon_image = notification.get("image")
-            if icon_image is not None:
-                icon_info = icon_image.split()  # <color> <icon_name>
-                updated_icon_info = f'{icon_info[0]} {icon_info[1]}{participant_config.get_icon_suffix(participant, icon_info[1])}'
-                notification["image"] = updated_icon_info
-
             # send notification
             notification[NOTIFICATION_KEY_SEND_START_TIME] = global_clock.getTime()
             success = send_notification_data(notification)
@@ -153,7 +146,7 @@ def trigger_notification_randomly(participant, session, global_clock):
         # sleep
         utilities.sleep_seconds(0.01)
 
-    print(f'Stopping sending notifications:: participant: {participant}, session: {session}, type:{notification_type}')
+    print('Stopping sending notifications')
 
     if not flag_is_running:
         clear_notification_data()
