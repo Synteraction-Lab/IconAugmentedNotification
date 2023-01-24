@@ -82,6 +82,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    // base: https://github.com/NUS-HCILab/NIPBase
     implementation 'com.github.NUS-HCILab:NIPBase:v1.0'
 
     // ref: (Vuzix Blade) https://www.vuzix.com/Developer/Dashboard/Blade-Code-Samples
