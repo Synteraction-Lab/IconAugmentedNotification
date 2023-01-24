@@ -1,5 +1,11 @@
 # IconNotifAndroid
-A branch of [HeadsUpGlass](https://github.com/NUS-HCILab/HeadsUpGlass) (and [NIPGlass)](https://github.com/NUS-HCILab/NIPGlass)) which display custom content on Android based OHMD (e.g., Vuzix Blade, Epson BT-300)
+A branch of [HeadsUpGlass](https://github.com/NUS-HCILab/HeadsUpGlass) (and private repo [NIPGlass](https://github.com/NUS-HCILab/NIPGlass)) which display custom content on Android based OHMD (e.g., Vuzix Blade, Epson BT-300)
+
+
+## Requirements
+1. AndroidStudio (or any IDE which support Android)
+2. Android SDK (AndroidStudio will directly download this for you)
+
 
 ## How to run?
 1. Build the project first (Make Tool)
@@ -7,9 +13,9 @@ A branch of [HeadsUpGlass](https://github.com/NUS-HCILab/HeadsUpGlass) (and [NIP
 3. If you get error saying that `credential` file missing, add an empty json file (i.e. `credential.json` with content `{}`) to `res/raw/`
 4. See more details at [HeadsUpGlass](https://github.com/NUS-HCILab/HeadsUpGlass) 
 
-## Requirements
-1. AndroidStudio (or any IDE which support Android)
-2. Android SDK (AndroidStudio will directly download this for you)
+
+### Python app
+- install the corresponding Python app in [IconNotifPython](../IconNotifPython) on a computer to trigger the notifications
 
 
 ### References

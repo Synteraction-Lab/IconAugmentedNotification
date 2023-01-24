@@ -14,7 +14,7 @@ Implementation of icon-augmented notifications (a clone of private repos [Trigge
 
 ## Contents
 - This repo contains the notification triggering implementation using Python ([IconNotifPython](IconNotifPython)) and UI implementation using Android([IconNotifAndroid](IconNotifAndroid))
-- Please see the branch [study1]() for `Study 1` impementation and branch [study3]() for `Study 3` implementation
+- Please see the branch [study1](https://github.com/NUS-HCILab/IconAugmentedNotification/tree/study1) for `Study 1` impementation and branch [study3](https://github.com/NUS-HCILab/IconAugmentedNotification/tree/study3) for `Study 3` implementation
 - See the individual folders for requirements and installations
 
 
