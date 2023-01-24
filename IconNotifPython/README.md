@@ -13,9 +13,7 @@ Trigger icon-augmented notfications on OHMDs (Epson BT300).
 
 
 ### OHMD (Android) app
-- install the corresponding OHMD app in [NIPGlass](https://github.com/NUS-HCILab/NIPGlass) to the hardware (e.g., Epson BT-300 or any Android device) 
-- e.g. if you want to try `illustrations_0.x` branch of this repo, you need to install `notification_illustrations_0.x` brach of `NIPGlass` repo
-    - if you can not find the exact number use the latest version (e.g. [illustrations_0.2](https://github.com/NUS-HCILab/TriggerNotificationPython/tree/poc/illustrations_0.2) -> [notification_illustrations_0.1](https://github.com/NUS-HCILab/NIPGlass/tree/poc/notification_illustrations_0.1))
+- install the corresponding OHMD app in [IconNotifAndroid](../IconNotifAndroid) to the hardware (e.g., Epson BT-300 or any Android device) 
 
 
 ## Run the application
