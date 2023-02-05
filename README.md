@@ -2,10 +2,24 @@
 Implementation of icon-augmented notifications (a clone of private repos [TriggerNotificationPython](https://github.com/NUS-HCILab/TriggerNotificationPython) and [NIPGlass](https://github.com/NUS-HCILab/NIPGlass))
 
 ## Publications
-- [Can Icons Outperform Text? Understanding the Role of Pictograms in OHMD Notifications](https://doi.org/10.1145/3544548.3580891), CHI'23 [**[PDF]**](CHI2023_icon_notification.pdf)
+- [Can Icons Outperform Text? Understanding the Role of Pictograms in OHMD Notifications](https://doi.org/10.1145/3544548.3580891), CHI'23 [**[PDF]**](CHI2023_icon_notification.pdf) (camera ready)
 ```
-<Bibtext>
-
+@article{janaka_can_2023,
+	title = {Can Icons Outperform Text? Understanding the Role of Pictograms in OHMD Notifications},
+	language = {en},
+	author = {Janaka, Nuwan and Zhao, Shengdong and Sapkota, Shardul},
+	year = {2023},
+	isbn = {9781450394215},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/3544548.3580891},
+	doi = {10.1145/3544548.3580891},
+	booktitle = {CHI Conference on Human Factors in Computing Systems},
+	numpages = {23},
+	keywords = {notification, OHMD, OST HMD, smart glasses, pictogram, icon, interruption, distraction},
+	location = {Hamburg, Germany},
+	series = {CHI '23}
+}
 ```
 
 ## Contact person
