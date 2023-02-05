@@ -7,7 +7,7 @@
 - supports the Study 1 (comparison of icon-augmented notificatons with text notifications for researcher-selected icons)
 
 ### main
-- synced with study 3
+- synced with `study3` branch
 
 
 ## TODO
