@@ -7,7 +7,7 @@
 - supports the Study 1 (comparison of icon-augmented notificatons with text notifications for researcher-selected icons)
 
 ### main
-- description
+- synced with study 3
 
 
 ## TODO
