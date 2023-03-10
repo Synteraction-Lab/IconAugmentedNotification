@@ -23,7 +23,7 @@ Implementation of icon-augmented notifications (a clone of private repos [Trigge
 ```
 
 ## Contact person
-- [Nuwan Janaka](https://www.nus-hci.org/team/nuwan-janaka/) ([In](https://www.linkedin.com/in/nuwan-janaka/)
+- [Nuwan Janaka](https://www.nus-hci.org/team/nuwan-janaka/) ([In](https://www.linkedin.com/in/nuwan-janaka/))
 
 
 ## Contents
