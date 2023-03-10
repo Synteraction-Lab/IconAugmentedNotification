@@ -4,7 +4,7 @@ Implementation of icon-augmented notifications (a clone of private repos [Trigge
 ## Publications
 - [Can Icons Outperform Text? Understanding the Role of Pictograms in OHMD Notifications](https://doi.org/10.1145/3544548.3580891), CHI'23 [**[PDF]**](CHI2023_icon_notification.pdf) (camera ready)
 ```
-@article{janaka_can_2023,
+@inproceedings{janaka_can_2023,
 	title = {Can Icons Outperform Text? Understanding the Role of Pictograms in OHMD Notifications},
 	language = {en},
 	author = {Janaka, Nuwan and Zhao, Shengdong and Sapkota, Shardul},
