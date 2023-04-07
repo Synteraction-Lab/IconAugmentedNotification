@@ -24,5 +24,5 @@ Trigger icon-augmented notfications on OHMDs (Epson BT300).
 - all data will be logged to `data/<participant_id>`
 - extra commands
   - to test icons `python test_icons.py` (and press `arrow down` to navigate)
-  - to test notifications `python test_icons.py`
+  - to test notifications `python test_notifications.py`
   - to find accuracy for each `python txt_to_csv_illustrations.py -p <PARTICIPANT_ID> -s <SESSION_ID>`
