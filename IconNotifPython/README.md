@@ -7,6 +7,7 @@ Trigger icon-augmented notfications on OHMDs (Epson BT300).
 - make sure python3 is installed
 - install `conda` (e.g., [Anaconda](https://docs.anaconda.com/anaconda/install/)/[Miniconda](https://docs.conda.io/en/latest/miniconda.html))
 - create new conda environment, `conda env create -n psychopy -f psychopy-env.yml`
+- create a directory `stimuli` inside root folder (i.e., `IconNotifPython/stimuli`)
 - activate `psychopy` environment, `conda activate psychopy`
 - [only if demos are not working] downgrade `xlrd` version, `pip install xlrd==1.2.0`
 
@@ -21,3 +22,7 @@ Trigger icon-augmented notfications on OHMDs (Epson BT300).
 - run the `python task_vigilance.py` (or `trigger.sh` in terminal) and input the <participant_id> (default: p0) and <session_id> (default: 0) when prompts
 - see the configurations at [participant_config.py](participant_config.py)
 - all data will be logged to `data/<participant_id>`
+- extra commands
+  - to test icons `python test_icons.py` (and press `arrow down` to navigate)
+  - to test notifications `python test_icons.py`
+  - to find accuracy for each `python txt_to_csv_illustrations.py -p <PARTICIPANT_ID> -s <SESSION_ID>`
