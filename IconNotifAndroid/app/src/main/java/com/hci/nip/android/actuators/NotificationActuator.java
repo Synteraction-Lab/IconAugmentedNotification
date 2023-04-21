@@ -358,6 +358,7 @@ public class NotificationActuator extends ServiceProvider implements Actuator {
                 nameIconMap.put("img_alarm1", R.drawable.img_alarm1);
                 nameIconMap.put("img_alarm4", R.drawable.ic_alarm_notif);
                 nameIconMap.put("img_alarm5", R.drawable.img_alarm5);
+                nameIconMap.put("img_alarm6", R.drawable.img_alarm6);
                 nameIconMap.put("img_meeting1", R.drawable.img_meeting1);
                 nameIconMap.put("img_meeting2", R.drawable.img_meeting2);
                 nameIconMap.put("img_meeting3", R.drawable.img_meeting3);
@@ -497,6 +498,8 @@ public class NotificationActuator extends ServiceProvider implements Actuator {
                 nameIconMap.put("img_backup_computer2", R.drawable.img_backup_computer2);
                 nameIconMap.put("img_backup_computer3", R.drawable.img_backup_computer3);
                 nameIconMap.put("img_backup_computer4", R.drawable.img_backup_computer4);
+
+                nameIconMap.put("img_no_left_turn1", R.drawable.img_no_left_turn1);
 
             }
 
