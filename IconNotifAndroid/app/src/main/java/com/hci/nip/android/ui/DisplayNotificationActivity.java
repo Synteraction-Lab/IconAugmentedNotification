@@ -531,6 +531,7 @@ public class DisplayNotificationActivity extends BaseActivity {
     }
 
     private void changeImageView(ImageView imageView, NotificationActuator.ColorText colorText, float alpha) {
+        Log.d(TAG, "changeImageView: " + colorText);
         imageView.setImageResource(NotificationActuator.NotificationIconMapping.getIcon(colorText.getText()));
         if (colorText.getColor() != 0) {
             imageView.setColorFilter(colorText.getColor());

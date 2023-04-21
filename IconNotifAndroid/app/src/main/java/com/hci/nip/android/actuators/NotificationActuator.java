@@ -500,7 +500,6 @@ public class NotificationActuator extends ServiceProvider implements Actuator {
                 nameIconMap.put("img_backup_computer4", R.drawable.img_backup_computer4);
 
                 nameIconMap.put("img_no_left_turn1", R.drawable.img_no_left_turn1);
-
             }
 
             Integer iconVal = nameIconMap.get(iconName);

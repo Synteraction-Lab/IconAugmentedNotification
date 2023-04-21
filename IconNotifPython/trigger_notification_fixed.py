@@ -44,9 +44,9 @@ def send_factor_data(factor):
 
     if factor == 'f': # familiarity
         data = [
-            {"subheading": "Alarm   8 am"},
-            {"subheading": "  8 am", "image": "#FF00FF7D img_alarm1"},
             {"subheading": "  8 am", "image": "#FF00FF7D img_alarm6"},
+            {"subheading": "  8 am", "image": "#FF00FF7D img_alarm1"},
+            # {"subheading": "Alarm   8 am"},
         ]
     elif factor == 'd': # density
         data = [
